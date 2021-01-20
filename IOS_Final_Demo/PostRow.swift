@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PostRow: View {
     @Environment(\.openURL) var openURL
@@ -51,7 +52,12 @@ struct PostRow: View {
     var body: some View {
         HStack{
             if let mediaURL = mediaURL {
-                NetworkImage(urlStr: mediaURL)
+//                NetworkImage(urlStr: mediaURL)
+//                    .frame(width: 80, height: 80)
+//                    .scaledToFill()
+//                    .clipped()
+                KFImage(URL(string: mediaURL)!)
+                    .resizable()
                     .frame(width: 80, height: 80)
                     .scaledToFill()
                     .clipped()
